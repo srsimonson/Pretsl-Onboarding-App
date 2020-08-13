@@ -1,0 +1,43 @@
+@import 'src/index.scss';
+
+.customerDashboardActiveStatusConditionalRenderDiv {
+    border: 1px solid $quinary;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 60%;
+    padding: 20px;
+}
+
+.customer-header-h1 {
+    margin: 20px;
+}
+
+.store-name {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dateJoinedDiv, .emailDisplayDiv, .contractViewButton {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.dropzone-style {
+    background-color: $quinary;
+    width: 50%;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 550;
+    color: rgb(94, 94, 94);
+}
+
+.dropzone-style:hover{
+    background-color: rgb(211, 211, 211);
+    cursor: pointer;
+}
+
+// .left-column {
+//     margin-left: 10px;
+// }

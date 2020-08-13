@@ -1,0 +1,42 @@
+@import 'src/index.scss';
+
+.storeForm {
+    padding-top: 3%;
+}
+
+.admin-individual-store-container {
+    border: 1px solid $quinary;
+    border-radius: 10px;
+    margin: 50px;
+    padding: 20px;
+}
+
+.notes {
+    padding-left: 15px;
+    width: 99%;
+}
+
+.field {
+    padding-bottom: 35px;
+}
+
+.pageHeader {
+    padding-top: 3%;
+    padding-bottom: 2%;
+}
+
+.emailButton {
+    float: right;
+}
+
+.user-id {
+    padding-top: 3%;
+}
+
+.registerCustomerButton {
+    float: right;
+}
+
+.copyButton {
+    display: inline-block;
+}

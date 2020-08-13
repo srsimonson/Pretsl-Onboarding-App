@@ -1,0 +1,41 @@
+@import 'src/index.scss';
+
+.nav-title {
+    font-size: 24px;
+    font-weight: 700;
+    display: inline-block;
+    color: #f2f2f2;
+    padding-left: 10px;
+    font-family: $font-family;
+}
+
+.nav {
+  overflow: hidden;
+  background-color: $primary;
+}
+
+.nav-link {
+  float: left;
+  color: #f2f2f2;
+  background-color: $primary;
+  text-align: center;
+  padding: 24px 10px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: $font-family;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border:none;
+  cursor: pointer;
+  outline:0;
+}
+
+.nav-link:hover {
+  color: $quaternary;
+  font-family: $font-family;
+}
+
+.nav-right {
+  float: right;
+}

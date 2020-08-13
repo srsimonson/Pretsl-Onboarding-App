@@ -1,0 +1,78 @@
+@import 'src/index.scss';
+
+body {
+    font-family: $font-family;
+    margin: 0px;
+}
+
+.alert {
+    background-color: #ff4545;
+    margin: 50px;
+}
+
+form {
+    width: 80%;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
+}
+
+input {
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+// .log-in, 
+.log-out, .register {
+  background-color: $primary;
+//   border-radius: 4px;
+  color: $tertiary;
+  min-height: 50px;
+  min-width: 100px;
+  outline:0;
+  cursor: pointer;
+}
+
+/* This line makes the "Register" and "Login" buttons look like links */
+.link-button {
+    background:none;
+    color:inherit;
+    border:none;
+    padding:0;
+    font: inherit;
+    outline:0;
+    border-bottom:1px solid #444; 
+    cursor: pointer;
+}
+.customerInfo {
+    margin:10px;
+    border-bottom: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  background-color: red;
+  color: white;
+}
+
+// th,
+// td {
+//   width: 150px;
+//   text-align: center;
+//   border: 1px solid black;
+//   padding: 5px;
+// }
+
+.logo-nav {
+    width: 10%;
+    padding-top: 15px;
+    margin-left: 10px;
+}
+
+.logo-head {
+    width: 70%;
+    margin: 40px;
+}

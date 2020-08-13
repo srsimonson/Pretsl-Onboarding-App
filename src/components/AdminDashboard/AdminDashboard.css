@@ -1,0 +1,28 @@
+.adminDashboard {
+    padding: 5%;
+}
+
+.adminDashHead {
+    padding-top: 20px;
+    margin: 5%;
+}
+
+.adminDashButton {
+    float: right;
+    display: inline;
+}
+
+.adminDashContainer {
+    padding-top: 3%;
+}
+
+.notes-cell {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+}
+
+.row-hover:hover{
+    background-color: rgb(235, 235, 235);
+}

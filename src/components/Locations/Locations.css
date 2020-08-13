@@ -1,0 +1,15 @@
+/* .locations {
+    padding: 5%;
+    border-style: none;
+    border-color: none;
+} */
+
+.locationsHead {
+    padding-top: 20px;
+    margin: 5%;
+}
+
+.locationButton {
+    float: right;
+    display: inline;
+}
