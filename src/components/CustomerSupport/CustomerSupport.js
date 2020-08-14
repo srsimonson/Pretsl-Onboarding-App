@@ -11,7 +11,6 @@ class CustomerSupport extends Component {
         requestType: '',
         requestBody: '',
         requestStatus: 'New Request',
-        // modalOpen: false
     }
 
     // on component mount retreives locations for the global store

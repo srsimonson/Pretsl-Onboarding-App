@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import './App.scss';
 
-import UserPage from '../UserPage/UserPage';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
@@ -21,6 +20,8 @@ import CustomerDashboard from '../CustomerDashboard/CustomerDashboard';
 import CustomerNavigation from '../CustomerNavigation/CustomerNavigation';
 import CustomerSupport from '../CustomerSupport/CustomerSupport';
 import Locations from '../Locations/Locations';
+
+
 
 class App extends Component {
 
@@ -40,7 +41,6 @@ class App extends Component {
 
           <Switch>
             {isAdmin ? <Redirect exact from="/home" to="/AdminDashboard" /> : <Redirect exact from="/home" to="/CustomerDashboard" />}
-            <ProtectedRoute exact path="/home" component={UserPage}/>
             
         {/* ADMIN ROUTES */}
             <ProtectedRoute exact path="/AdminDashboard" component={AdminDashboard}/>

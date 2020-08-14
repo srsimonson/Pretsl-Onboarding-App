@@ -111,11 +111,11 @@ app.post('/upload', upload.any(), async(req, res) =>{
   try{
 
     for (let file of req.files){
-      console.log(`Uploading ${file.path}...`);
+      // console.log(`Uploading ${file.path}...`);
       //const file = req.files[0];
       // try{
     
-        console.log("inside Post try block for aws call");
+        // console.log("inside Post try block for aws call");
         await s3.upload({
           Bucket: 'pretslonboardingappbucket',
           Key: file.filename,
@@ -127,8 +127,8 @@ app.post('/upload', upload.any(), async(req, res) =>{
       //     console.log(err);
       //   } 
         //.promise();  //promise is required to use await keyword
-        console.log(`Uploading ${file.path}...done.`);
-        console.log(req.body);
+        // console.log(`Uploading ${file.path}...done.`);
+        // console.log(req.body);
         // try{
         await pool.query(
           `

@@ -8,7 +8,6 @@ const url = require('url');
 router.get('/', (req,res) =>{
 
     const user_id = url.parse(req.url, true).query.user_id;
-    console.log("inside store.router get request for client dashboard: user_id,",user_id);
 
     queryText = `SELECT * FROM "store"
     WHERE user_id = ${user_id};`

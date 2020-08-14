@@ -24,11 +24,11 @@ class Locations extends Component {
       modalOpen: false,
     };
 
-  constructor(props) {
-    super(props);
-    this.handleSave = this.handleSave.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.handleSave = this.handleSave.bind(this);
+  //   this.handleEdit = this.handleEdit.bind(this);
+  // }
 
   handleInputChangeFor = (propertyName) => (event) => {
     this.setState({
@@ -66,28 +66,11 @@ class Locations extends Component {
 
   handleClose = () => this.setState({ modalOpen: false })
 
-  autoPopulateForm = () => {
-    console.log('autoPopulateForm clicked', this.props);
-    this.setState({
-        store_id: this.props.reduxState.locationsReducer[0].store_id,
-        storeName: `Lindsey's Patisserie on Grand`,
-        address: "1355 Central Ave., Minneapolis, MN; 55418",
-        timezone: "Central",
-        phoneNumber: "651-554-3682",
-        email: "patisserieoncentral@gmail.com",
-        pointOfContact: "Jack",
-        tablets_quantity: 2,
-        printers_quantity: 1,
-        tablet_stands_quantity: 2,
-    })
-}
-
   render() {
     const location = this.props.reduxState.locationsReducer;
     const view = this.state.mode === "view";
     return (
       <div>
-        {console.log(this.props.reduxState.locationsReducer, 'this.state')}
         <Container>
           <Modal
             closeIcon

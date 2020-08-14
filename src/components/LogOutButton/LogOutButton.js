@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// import { Button, Header, Icon, Modal, Input, TextArea, } from 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min.css';
-
 const LogOutButton = props => (
   <button
     // This button shows up in multiple locations and is styled differently

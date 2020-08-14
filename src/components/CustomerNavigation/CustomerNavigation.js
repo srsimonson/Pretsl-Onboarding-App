@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-// import './Nav.css';
 
 const CustomerNavigation = (props) => (
   <div className="nav">
     <Link to="/home">
-      {/* <h2 className="nav-title">Customer Nav Bar</h2> */}
       <img className="logo-nav" src="https://get.pretsl.com/wp-content/uploads/2020/06/Pretsl-New-Logo-1.11-White-Opt.png" alt="pretsl logo"></img>
     </Link>
     <div className="nav-right">

@@ -36,7 +36,7 @@ class CustomerDashboardPostonboarding extends Component {
                             </Grid.Column>
                             <Grid.Column width={8}>
                                 <h3>MoonClerk URL</h3>
-                                <a target="_blank" href={String(this.props.store.moonclerk_url)}>{String(this.props.store.moonclerk_url)}</a>
+                                <a target="_blank" rel="noopener noreferrer" href={String(this.props.store.moonclerk_url)}>{String(this.props.store.moonclerk_url)}</a>
                                 <h3>Contract</h3>
                                     
                                     <ViewContract />

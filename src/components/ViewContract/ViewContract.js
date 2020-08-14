@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Image, Button, Modal, Header} from 'semantic-ui-react';
+import { Button, Modal, Header} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './ViewContract.scss'
-import FileViewer from 'react-file-viewer';
 
 class ViewContract extends Component {
 

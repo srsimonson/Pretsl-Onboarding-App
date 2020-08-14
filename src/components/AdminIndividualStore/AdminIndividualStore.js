@@ -90,8 +90,6 @@ class AdminIndividualStore extends Component {
             printers_quantity: this.state.printers_quantity,
             tablet_stands_quantity: this.state.tablet_stands_quantity,
         }
-        console.log('locationObj', locationObj);
-        
 
         this.props.dispatch({
             type: "POST_LOCATION",
@@ -127,7 +125,6 @@ class AdminIndividualStore extends Component {
     }
 
     toggleEdit = () => {
-        console.log('in toggleEdit');
         this.setState({
             edit: !this.state.edit,
             id: this.props.store.id,

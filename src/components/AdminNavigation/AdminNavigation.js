@@ -2,13 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-// import './Nav.css';
 
 const AdminNavigation = (props) => (
   <div className="nav">
-    <Link to="/home">
-      {/* <h2 className="nav-title">Admin Nav Bar</h2> */}
-    </Link>
+    <Link to="/home"></Link>
     <img className="logo-nav" src="https://get.pretsl.com/wp-content/uploads/2020/06/Pretsl-New-Logo-1.11-White-Opt.png" alt="pretsl logo"></img>
     <div className="nav-right">
       

@@ -33,11 +33,6 @@ class RegisterPage extends Component {
     });
   }
 
-  confirm = () => {
-    console.log('confirm??');
-    
-  }
-
   getUsers = () => {
     setTimeout(() => {
       this.props.dispatch({

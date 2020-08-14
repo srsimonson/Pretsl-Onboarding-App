@@ -22,7 +22,6 @@ router.get('/', (req, res) => {
  * POST route for locations
  */
 router.post('/', (req, res) => {
-    console.log(req.body, 'req.body')
     const store_id = req.body.store_id;
     const address = req.body.address;
     const timezone = req.body.timezone;

@@ -27,7 +27,6 @@ ORDER BY support.id DESC;`;
  * POST route for support
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
-    console.log('req.body', req.body);
     let sqlText = 'INSERT INTO support (store_id, request_type, request_body, ticket_status) VALUES ($1, $2, $3, $4);';
     pool.query(sqlText, [req.body.storeId, req.body.requestType, req.body.requestBody, req.body.requestStatus])
     .then(result => {

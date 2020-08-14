@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Dropzone from 'react-dropzone'
-import { Button } from 'semantic-ui-react';
 
 // imports semantic UI styling theme
 import 'semantic-ui-css/semantic.min.css';

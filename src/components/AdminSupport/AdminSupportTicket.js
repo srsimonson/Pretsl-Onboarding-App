@@ -5,6 +5,8 @@ import { Button, Table, Modal, Header, Icon } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './AdminSupport.css';
 
+
+// This component allows status of tickets to be updated on Admin ticket view.
 class AdminSupportTicket extends Component {
 
     state = {

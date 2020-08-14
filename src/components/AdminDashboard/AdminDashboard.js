@@ -5,7 +5,6 @@ import { Table, Button, Header, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './AdminDashboard.css';
 
-
 class AdminDashboard extends Component {
 
     // on mount component populates global store

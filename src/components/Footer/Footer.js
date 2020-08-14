@@ -8,7 +8,7 @@ import './Footer.css'
 
 const Footer = () => (
   <footer>
-    &copy; Pretsl
+    &copy; Pretsl 2020
   </footer>
 );
 
