@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { Container, Header, Button, Input, TextArea, Form, Modal, Icon, Grid } from 'semantic-ui-react';
 import Moment from 'react-moment';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+
+import Dropzone from 'react-dropzone'
+
 import RegisterPage from '../RegisterPage/RegisterPage'
 import ViewContract from '../ViewContract/ViewContract'
 
@@ -10,9 +13,18 @@ import 'react-dropzone-uploader/dist/styles.css'
 import 'semantic-ui-css/semantic.min.css';
 import './AdminIndividualStore.scss';
 
-
-
 class AdminIndividualStore extends Component {
+
+    onDrop = (acceptedFiles) => {
+        console.log('onDrop:', acceptedFiles);
+        const upload = acceptedFiles[0];
+        this.setState({
+            store_inventory: acceptedFiles
+        })
+        this.props.dispatch({ 
+            type: 'UPDATE_AWS_BUCKET',
+            payload: this.state })
+    } 
 
     state = {
         store_id: "",
@@ -54,22 +66,19 @@ class AdminIndividualStore extends Component {
         Afterwards, follow this link to complete payment so we can get you on the way to having goods in customer's hands: https://moonclerk.com/s1gty542re`,
     }
 
-    constructor(props) {
-        super(props);
-        this.handleSave = this.handleSave.bind(this);
-        this.handleEdit = this.handleEdit.bind(this);
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.handleSave = this.handleSave.bind(this);
+    //     this.handleEdit = this.handleEdit.bind(this);
+    // }
 
-    // updates state on input change
     handleInputChangeFor = (propertyName) => (event) => {
         this.setState({
             [propertyName]: event.target.value,
         });
     };
 
-    // dispatches post action with a new location object
     handleSave() {
-        // Location object to be send in a post request
         const locationObj = {
             store_id: this.props.reduxState.individualStoreReducer.id,
             address: this.state.address,
@@ -81,14 +90,14 @@ class AdminIndividualStore extends Component {
             printers_quantity: this.state.printers_quantity,
             tablet_stands_quantity: this.state.tablet_stands_quantity,
         }
+        console.log('locationObj', locationObj);
+        
 
-        // Post is dispatched here
         this.props.dispatch({
             type: "POST_LOCATION",
             payload: locationObj,
         });
 
-        // Clears state and corresponding inputs
         this.setState({
             store_id: "",
             storeName: "",
@@ -102,22 +111,23 @@ class AdminIndividualStore extends Component {
             tablet_stands_quantity: "",
             modalOpen: false,
         });
-
-        // closes add location modal
         this.handleClose();
     }
 
-    // Modal open and close functions
+    // handleEdit() {
+    //     this.setState({ mode: "edit" });
+    // }
+
     handleOpen = () => this.setState({ modalOpen: true })
+
     handleClose = () => this.setState({ modalOpen: false })
 
-    // brings Administrator back to the dashboard
     goBack = () => {
         this.props.history.push('/AdminDashboard')
     }
 
-    // Toggles edit state of the Admin individual store view
     toggleEdit = () => {
+        console.log('in toggleEdit');
         this.setState({
             edit: !this.state.edit,
             id: this.props.store.id,
@@ -134,7 +144,6 @@ class AdminIndividualStore extends Component {
         })
     }
 
-    // Sets new state on input change
     handleChange = (event) => {
         this.setState({
             ...this.state,
@@ -142,7 +151,6 @@ class AdminIndividualStore extends Component {
         })
     }
 
-    // dispatches action to update a store's information
     submitChanges = () => {
         this.props.dispatch({ type: 'UPDATE_STORE', payload: this.state })
         this.setState({
@@ -150,7 +158,6 @@ class AdminIndividualStore extends Component {
         })
     }
 
-    // dispatches an email object to the Amazon SES
     sendMail = () => {
         let newEmail = {
             customer_email: this.state.customer_email,
@@ -161,7 +168,6 @@ class AdminIndividualStore extends Component {
         this.handleCloseEmail();
     }
 
-    // opens modal for integrated email service
     handleOpenEmail = () => {
         this.setState({
             emailModalOpen: true,
@@ -169,43 +175,22 @@ class AdminIndividualStore extends Component {
         })
     }
 
-    // PDF uploader and dropzone
-    MyUploader = () =>{
-        const getUploadParams = () => (
-            {
-                url:'/upload',
-                "fields": {
-                    client_id: this.props.store.user_id,
-                    food: 'tacos'
-                }
-                
-            }
-        );
-
-        const handleSubmit = (files, allFiles) => {
-        allFiles.forEach(f => f.remove());
-    }
-
-    return (
-        <Dropzone
-            getUploadParams={getUploadParams}
-            onSubmit = {handleSubmit}
-            />
-    )
-    }
-
-    // Opens new account registration modal
+    handleClose = () => this.setState({ modalOpen: false })
     openRegisterNewCustomer = () => {
         this.setState({
             registerModalOpen: true
         })
     }
 
-    // Handles email and registration modal opening
     handleCloseEmail = () => this.setState({ emailModalOpen: false })
     handleCloseRegister = () => this.setState({ registerModalOpen: false })
 
     render() {
+        const currentUser = this.props.userlist.find(user => user.id === this.props.store.user_id)
+
+        const file = '../../public/images/PRETSL Android Icon.png'
+        const type = 'png'
+        
         return (
             <div>
             <Container className='pageHeader'>
@@ -442,11 +427,20 @@ class AdminIndividualStore extends Component {
                             <Form.Field>
                                 <h3>Contract</h3>
                                 {this.state.edit ?
-                                    <this.MyUploader />
+                                    <Dropzone onDrop={this.onDrop}>
+                                        {({getRootProps, getInputProps}) => (
+                                            <section className="dropzone-style">
+                                                <div {...getRootProps()}>
+                                                    <input {...getInputProps()} />
+                                                    <p>Upload Contract</p>
+                                                </div>
+                                            </section>
+                                        )}
+                                    </Dropzone>
                                     :
-                                    <ViewContract
-                                        file={file}
-                                        type={type} />
+                                        <ViewContract
+                                            file={file}
+                                            type={type} />
                                 }
                             </Form.Field>
                             <Form.Field>
